@@ -1,306 +1,528 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+      /* Global Styles */
 
-/* Global Styles */
+      * {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-* {
-  font-family: "Montserrat", sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+      body {
+        padding: 40px 10%;
+        background: #f5f5f5;
+      }
 
-body {
-  padding: 40px 10%;
-  background: #f5f5f5;
-}
+      a {
+        text-decoration: none;
+      }
 
-a{
-  text-decoration: none;
-}
+      /* Container Styles */
+      .container {
+        display: flex;
+      }
+      .main-wrapper {
+        flex: 2;
+      }
+      .side-bar {
+        background: #faf9f9;
+        flex: 1;
+        padding: 40px;
+        /* background-color: white; */
+      }
 
-/* Container Styles */
-.container {
-  display: flex;
-}
-.main-wrapper{
-  flex: 2;
-}
-.side-bar{
-  background: #faf9f9;
-  flex: 1;
-  padding: 40px;
-  /* background-color: white; */
-}
+      .side-bar ul {
+        padding: 0 40px;
+        list-style: none;
+      }
 
-.side-bar ul{
-  padding: 0 40px;
-  list-style: none;
-}
+      .side-bar {
+        background: rgb(230, 230, 231);
+      }
 
-.side-bar{
-  background: rgb(230, 230, 231);
-}
+      @media only screen and (max-width: 900px) {
+        .container {
+          flex-direction: column;
+        }
+        .side-bar {
+          background: #114;
+          color: white !important;
+        }
+        .side-bar a {
+          color: white !important;
+        }
+      }
 
+      /* Navigation Menu Styles */
 
-@media only screen and (max-width: 900px) {
-  .container {
-    flex-direction: column;
-  }
-  .side-bar{
-    background: #114;
-    color: white !important;
-  }
-  .side-bar a{
-    color: white !important;
-  }
-}
+      nav.nav-menu {
+        width: 100%;
+        background-color: #114;
+        padding: 10px;
+      }
 
+      nav.nav-menu ul {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        font-size: clamp(0.8rem, 1.2vw, 2rem);
+      }
 
+      .nav-menu .nav-item {
+        padding: 15px;
+        transition: background-color 500ms ease-in-out;
+      }
 
-/* Navigation Menu Styles */
+      .nav-menu .nav-item:hover {
+        cursor: pointer;
+        background-color: #f5f5f54d;
+      }
 
-nav.nav-menu {
-  width: 100%;
-  background-color: #114;
-  padding: 10px;
-}
+      .nav-menu .nav-item a {
+        text-decoration: none;
+        color: white;
+      }
 
-nav.nav-menu ul {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  list-style: none;
-  font-size: clamp(.8rem, 1.2vw, 2rem); 
-}
+      /* Main Content Wrapper Styles */
+      .main-wrapper {
+        background: white;
+        padding: 40px;
+      }
 
-.nav-menu .nav-item {
-  padding: 15px;
-  transition: background-color 500ms ease-in-out;
-}
+      section {
+        margin-bottom: 60px;
+      }
 
-.nav-menu .nav-item:hover {
-  cursor: pointer;
-  background-color: #f5f5f54d;
-}
+      section.head,
+      section.youtube-embed {
+        text-align: center;
+      }
 
-.nav-menu .nav-item a{
-  text-decoration: none;
-  color: white;
-}
+      .button-link {
+        display: block;
+        margin: 20px 0 0 0;
+        padding: 10px 40px;
+        width: fit-content;
+        background: #114;
+        border-radius: 5px;
+        text-decoration: none;
+        color: white;
+        transition: 0.3s transform ease-in-out;
+      }
 
+      .button-link:hover {
+        transform: scale(1.05);
+      }
 
-/* Main Content Wrapper Styles */
-.main-wrapper {
-  background: white;
-  padding: 40px;
-}
+      h1 {
+        font-size: 34px;
+      }
 
-section {
-  margin-bottom: 60px;
-}
+      h2 {
+        margin-bottom: 20px;
+      }
 
-section.head,
-section.youtube-embed {
-  text-align: center;
-}
+      p {
+        text-align: justify;
+        margin-bottom: 10px;
+        line-height: 1.5rem;
+      }
 
-.button-link {
-  display: block;
-  margin: 20px 0 0 0;
-  padding: 10px 40px;
-  width: fit-content;
-  background: #114;
-  border-radius: 5px;
-  text-decoration: none;
-  color: white;
-  transition: 0.3s transform ease-in-out;
-}
+      img {
+        max-width: 100%;
+      }
 
-.button-link:hover {
-  transform: scale(1.05);
-}
+      .two-col {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+      }
 
-h1 {
-  font-size: 34px;
-}
+      .two-col div {
+        width: 50%;
+      }
 
-h2 {
-  margin-bottom: 20px;
-}
+      @media only screen and (max-width: 900px) {
+        body {
+          padding: 0;
+        }
 
-p {
-  text-align: justify;
-  margin-bottom: 10px;
-  line-height: 1.5rem;
-}
+        .two-col {
+          flex-direction: column;
+        }
 
-img {
-  max-width: 100%;
-}
+        .two-col div {
+          width: 100%;
+        }
 
-.two-col {
-  display: flex;
-  justify-content: space-between;
-  gap: 40px;
-}
+        .main-wrapper {
+          padding: 5%;
+        }
+      }
+    </style>
+    <title>
+      How Solar Installation can save you money? | Solar Panel Pensacola
+    </title>
+  </head>
 
-.two-col div {
-  width: 50%;
-}
+  <body>
+    <!-- Navigation Menu -->
+    <nav class="nav-menu">
+      <ul>
+        <li class="nav-item"><a href="http://solarpensacola.com/">Main</a></li>
+        <li class="nav-item">
+          <a href="https://goo.gl/maps/pUPBvVJeSUbeKuf7A">Maps</a>
+        </li>
+        <li class="nav-item"><a href="./media.html">Media</a></li>
+      </ul>
+    </nav>
 
-@media only screen and (max-width: 900px) {
-  body {
-    padding: 0;
-  }
+    <!-- Main Content Container -->
+    <div class="container">
+      <!-- Main Content Wrapper -->
+      <div class="main-wrapper">
+        <section class="head">
+          <h1>How Solar Installation can save you money?</h1>
+        </section>
 
-  .two-col {
-    flex-direction: column;
-  }
+        <section>
+          <iframe
+            width="100%"
+            height="500"
+            src="https://www.youtube.com/embed/qS8JsZuy614"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+          <a
+            class="button-link"
+            href="https://solarpensacola.com/how-solar-installation-can-save-you-money/"
+            >Read Post</a
+          >
+        </section>
 
-  .two-col div {
-    width: 100%;
-  }
+        <section>
+          <p>
+            You may be asking yourself how solar installation can save you
+            money. There are many reasons for this. Solar panels are becoming
+            more and more popular, and the cost of installing them is dropping
+            all the time. In addition, as solar technology improves, the
+            efficiency of solar panels goes up. This means that you will need
+            fewer panels to generate the same amount of power as you would have
+            in the past.
+          </p>
+          <p>
+            <a href="https://solarpensacola.com/solar_energy_contractor/"
+              >Solar installation</a
+            >
+            can also save you money in the long run because it decreases your
+            dependence on the grid. When you install solar panels, you become
+            more self-sufficient, and you are less reliant on the utility
+            company. This means that you will not have to pay as much for your
+            energy bills each month, and you may even be able to sell back
+            excess energy to the grid. Solar installation is a great investment
+            for both your wallet and the environment.
+          </p>
+          <p>
+            There are a number of
+            <a href="https://solarpensacola.com/benefits-of-solar-installation/"
+              >benefits to installing solar panels in Pensacola</a
+            >. Solar energy is a renewable resource, so you can feel good about
+            using it to power your home or business. Additionally, solar
+            installations can help you save money on your energy bills, and may
+            even increase the value of your property.
+          </p>
+          <p>
+            Solar panels are a great way to save money on your energy bill while
+            also doing your part for the environment. Solar installation is
+            becoming more and more popular, and for good reason – it’s a great
+            way to reduce your carbon footprint and save money. If you’re
+            considering solar installation in Pensacola, here are some things to
+            keep in mind.
+          </p>
+        </section>
 
-  .main-wrapper {
-    padding: 5%;
-  }
-}
-   </style>
-  <title>How Solar Installation can save you money? | Solar Panel Pensacola</title>
-</head>
-
-<body>
-  <!-- Navigation Menu -->
-  <nav class="nav-menu">
-    <ul>
-      <li class="nav-item"><a href="http://solarpensacola.com/">Main</a></li>
-      <li class="nav-item"><a href="https://goo.gl/maps/pUPBvVJeSUbeKuf7A">Maps</a></li>
-      <li class="nav-item"><a href="./media.html">Media</a></li>
-    </ul>
-  </nav>
-
-  <!-- Main Content Container -->
-  <div class="container">
-
-    <!-- Main Content Wrapper -->
-    <div class="main-wrapper">
-      <section class="head">
-        <h1>How Solar Installation can save you money?</h1>
-      </section>
-
-      <section>
-        <iframe width="100%" height="500" src="https://www.youtube.com/embed/qS8JsZuy614" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          <a class="button-link"
-                href="https://solarpensacola.com/how-solar-installation-can-save-you-money/">Read Post</a>
-      </section>
-
-      <section>
-          <p>You may be asking yourself how solar installation can save you money. There are many reasons for this. Solar panels are becoming more and more popular, and the cost of installing them is dropping all the time. In addition, as solar technology improves, the efficiency of solar panels goes up. This means that you will need fewer panels to generate the same amount of power as you would have in the past.</p>
-          <p><a href="https://solarpensacola.com/solar_energy_contractor/">Solar installation</a> can also save you money in the long run because it decreases your dependence on the grid. When you install solar panels, you become more self-sufficient, and you are less reliant on the utility company. This means that you will not have to pay as much for your energy bills each month, and you may even be able to sell back excess energy to the grid. Solar installation is a great investment for both your wallet and the environment.</p>
-          <p>There are a number of <a href="https://solarpensacola.com/benefits-of-solar-installation/">benefits to installing solar panels in Pensacola</a>. Solar energy is a renewable resource, so you can feel good about using it to power your home or business. Additionally, solar installations can help you save money on your energy bills, and may even increase the value of your property.</p>
-          <p>Solar panels are a great way to save money on your energy bill while also doing your part for the environment. Solar installation is becoming more and more popular, and for good reason – it’s a great way to reduce your carbon footprint and save money. If you’re considering solar installation in Pensacola, here are some things to keep in mind.</p>
-      </section>
-
-      <section>
-          <div style="display:flex; justify-content:center;">
-              <img src="https://lh3.googleusercontent.com/geougc/AF1QipP_ZIC0rmuT-li8ehLblFWWlozkrPFsD2-w3xOM=h400-no" alt="Solar Panel Pensacola, FL">
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipP_ZIC0rmuT-li8ehLblFWWlozkrPFsD2-w3xOM=h400-no"
+              alt="Solar Panel Pensacola, FL"
+            />
           </div>
-          <br>
-          <h2 style="text-align:center;">How Solar Installation can help the environment?</h2>
-          <hr>
-          <br>
-          <p>Installing solar panels is a great way to help the environment. Not only will you be reducing your carbon footprint, but you’ll also be helping to reduce the amount of pollution in our atmosphere. In addition, a solar installation can also help to conserve energy and reduce our dependence on fossil fuels.</p>
-          <p>If you’re looking for a solar installation in Pensacola, you’ve come to the right place. Solar panels can help you save money on your energy bills and protect the environment. At Solar Installation Pensacola, we offer top-quality solar panels and installation services.</p>
-          <p>Solar panels are becoming an increasingly popular way to produce renewable energy. They can be installed on your home or business to provide power, and they’re a great way to reduce your carbon footprint. If you’re interested in installing solar panels in Pensacola, there are a few things you need to know.</p>
-          <p>Solar installation is becoming more popular each year, as people become more and more interested in renewable energy sources. If you’re considering installing solar panels in Pensacola, there are a few things you need to know first.</p>
-          <p>There are many benefits to having solar panels installed on your home or business. Solar energy is a renewable resource, which means that it can be used over and over again. It is also environmentally friendly and helps reduce greenhouse gas emissions.</p>
-          <a class="button-link"
-                href="https://solarpensacola.com/">Visit Us</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            How Solar Installation can help the environment?
+          </h2>
+          <hr />
+          <br />
+          <p>
+            Installing solar panels is a great way to help the environment. Not
+            only will you be reducing your carbon footprint, but you’ll also be
+            helping to reduce the amount of pollution in our atmosphere. In
+            addition, a solar installation can also help to conserve energy and
+            reduce our dependence on fossil fuels.
+          </p>
+          <p>
+            If you’re looking for a solar installation in Pensacola, you’ve come
+            to the right place. Solar panels can help you save money on your
+            energy bills and protect the environment. At Solar Installation
+            Pensacola, we offer top-quality solar panels and installation
+            services.
+          </p>
+          <p>
+            Solar panels are becoming an increasingly popular way to produce
+            renewable energy. They can be installed on your home or business to
+            provide power, and they’re a great way to reduce your carbon
+            footprint. If you’re interested in installing solar panels in
+            Pensacola, there are a few things you need to know.
+          </p>
+          <p>
+            Solar installation is becoming more popular each year, as people
+            become more and more interested in renewable energy sources. If
+            you’re considering installing solar panels in Pensacola, there are a
+            few things you need to know first.
+          </p>
+          <p>
+            There are many benefits to having solar panels installed on your
+            home or business. Solar energy is a renewable resource, which means
+            that it can be used over and over again. It is also environmentally
+            friendly and helps reduce greenhouse gas emissions.
+          </p>
+          <a class="button-link" href="https://solarpensacola.com/">Visit Us</a>
+        </section>
 
-      <section>
+        <section>
           <h2>The benefits of choosing a solar installation company.</h2>
-          <p>When it comes time to choose a solar installation company, there are a few things you’ll want to keep in mind. Not all solar installation companies are created equal, and it’s important to find one that is reputable, experienced, and has a good track record.</p>
-          <p>If you are looking for a solar installation company in Pensacola, look no further than Solar Installation. Solar Installation is a full-service solar installation company that has been providing quality solar installations to homeowners and businesses in the Pensacola area for many years. We offer a wide range of solar products and services, including solar panel installation, solar roof installation, and solar water heating installation.</p>
-          <p>Solar Installation is a locally-owned and operated business that takes pride in our workmanship and our commitment to customer satisfaction. We are dedicated to helping homeowners and businesses reduce their energy costs and improve their environmental footprint through the use of solar energy.</p>
-          <p>Solar panels are a great way to save money on your electric bill and help the environment. If you’re looking for a solar installation company in Pensacola, look no further than Solar Installation Pensacola! We offer top-quality solar panels and installation services at a price you can afford.</p>
-      </section>
+          <p>
+            When it comes time to choose a solar installation company, there are
+            a few things you’ll want to keep in mind. Not all solar installation
+            companies are created equal, and it’s important to find one that is
+            reputable, experienced, and has a good track record.
+          </p>
+          <p>
+            If you are looking for a solar installation company in Pensacola,
+            look no further than Solar Installation. Solar Installation is a
+            full-service solar installation company that has been providing
+            quality solar installations to homeowners and businesses in the
+            Pensacola area for many years. We offer a wide range of solar
+            products and services, including solar panel installation, solar
+            roof installation, and solar water heating installation.
+          </p>
+          <p>
+            Solar Installation is a locally-owned and operated business that
+            takes pride in our workmanship and our commitment to customer
+            satisfaction. We are dedicated to helping homeowners and businesses
+            reduce their energy costs and improve their environmental footprint
+            through the use of solar energy.
+          </p>
+          <p>
+            Solar panels are a great way to save money on your electric bill and
+            help the environment. If you’re looking for a solar installation
+            company in Pensacola, look no further than Solar Installation
+            Pensacola! We offer top-quality solar panels and installation
+            services at a price you can afford.
+          </p>
+        </section>
 
-      <section>
-          <div style="display:flex; justify-content:center;">
-              <img src="https://lh3.googleusercontent.com/geougc/AF1QipPx1O5MzYKDz2Kd-uvmqZyHyv3Qd6VQsZODQ6Zh=h400-no" alt="Solar Panel Pensacola, FL">
+        <section>
+          <div style="display: flex; justify-content: center">
+            <img
+              src="https://lh3.googleusercontent.com/geougc/AF1QipPx1O5MzYKDz2Kd-uvmqZyHyv3Qd6VQsZODQ6Zh=h400-no"
+              alt="Solar Panel Pensacola, FL"
+            />
           </div>
-          <br>
-          <h2 style="text-align:center">How to find the best solar installation company for your needs?</h2>
-          <hr>
-          <br>
-          <p>When it comes time to install solar panels, you have a few choices as to who you can hire for the job. It’s important to find the best solar installation company for your needs, as they will be responsible for ensuring that your panels are installed correctly and safely. Here are a few tips on how to find the right company for the job. If you’re looking for a solar installation company in Pensacola, you’ve come to the right place. Our team of experts can help you install solar panels on your home or business, and we offer a range of services to suit your needs.</p>
-          <p>Many people are looking into solar energy as a way to reduce their monthly energy costs. Solar panels are a great way to take advantage of the sun’s natural energy, and they can be installed on your home or business. If you’re interested in solar panels for your Pensacola property, here is some information on the installation process.</p>
-          <p>The first step in installing solar panels is to calculate how many you will need. This calculation will take into account the size and orientation of your property, as well as your average monthly energy use. After you have determined the number of panels you need, the next step is to find a qualified installer.</p>
-          <a class="button-link"
-                href="https://google.com/maps/?cid=18370195428417117280">Find Us Here!</a>
-      </section>
+          <br />
+          <h2 style="text-align: center">
+            How to find the best solar installation company for your needs?
+          </h2>
+          <hr />
+          <br />
+          <p>
+            When it comes time to install solar panels, you have a few choices
+            as to who you can hire for the job. It’s important to find the best
+            solar installation company for your needs, as they will be
+            responsible for ensuring that your panels are installed correctly
+            and safely. Here are a few tips on how to find the right company for
+            the job. If you’re looking for a solar installation company in
+            Pensacola, you’ve come to the right place. Our team of experts can
+            help you install solar panels on your home or business, and we offer
+            a range of services to suit your needs.
+          </p>
+          <p>
+            Many people are looking into solar energy as a way to reduce their
+            monthly energy costs. Solar panels are a great way to take advantage
+            of the sun’s natural energy, and they can be installed on your home
+            or business. If you’re interested in solar panels for your Pensacola
+            property, here is some information on the installation process.
+          </p>
+          <p>
+            The first step in installing solar panels is to calculate how many
+            you will need. This calculation will take into account the size and
+            orientation of your property, as well as your average monthly energy
+            use. After you have determined the number of panels you need, the
+            next step is to find a qualified installer.
+          </p>
+          <a
+            class="button-link"
+            href="https://google.com/maps/?cid=18370195428417117280"
+            >Find Us Here!</a
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d880848.218471699!2d-86.850042!3d30.413037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfef00b69a54e9c60!2sSolar%20Panels%20Pensacola!5e0!3m2!1sen!2sph!4v1649820915046!5m2!1sen!2sph" width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">Solar%20Panel%20Pensacola,%20FL</iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d880848.218471699!2d-86.850042!3d30.413037!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfef00b69a54e9c60!2sSolar%20Panels%20Pensacola!5e0!3m2!1sen!2sph!4v1649820915046!5m2!1sen!2sph"
+            width="100%"
+            height="350"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            >Solar%20Panel%20Pensacola,%20FL</iframe
+          >
+        </section>
 
-      <section>
-        <iframe src="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiNxeXIjZD3AhVNmmYCHdKdDGkYABAAGgJzbQ&ae=2&ohost=www.google.com&cid=CAESbOD2yx1QPDJeqmGCgEBlu2NlSUR7AP-hy17yZYDzQnv1ntVPQ3KiI2O9uaIXv0GvhM3d_6ek7_zex_leb8ZcUuOJwg9LUIDOhH_y5jLcgkaxJBBAUU9vEbIFLjfK51h54rrpleEO7-g5ZoO4Ng&sig=AOD64_2AOWRIg9Cg0-EENjjEKvB6qDYRtg&q&adurl&ved=2ahUKEwjMjtzIjZD3AhXTILcAHae_Al0Q0Qx6BAgDEAE" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://www.googleadservices.com/pagead/aclk?sa=L&ai=DChcSEwiNxeXIjZD3AhVNmmYCHdKdDGkYABAAGgJzbQ&ae=2&ohost=www.google.com&cid=CAESbOD2yx1QPDJeqmGCgEBlu2NlSUR7AP-hy17yZYDzQnv1ntVPQ3KiI2O9uaIXv0GvhM3d_6ek7_zex_leb8ZcUuOJwg9LUIDOhH_y5jLcgkaxJBBAUU9vEbIFLjfK51h54rrpleEO7-g5ZoO4Ng&sig=AOD64_2AOWRIg9Cg0-EENjjEKvB6qDYRtg&q&adurl&ved=2ahUKEwjMjtzIjZD3AhXTILcAHae_Al0Q0Qx6BAgDEAE"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://weartv.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://weartv.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="https://solarpensacola.com/" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="https://solarpensacola.com/"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./media.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./media.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-      <section>
-        <iframe src="./index.html" style="border:0px #ffffff none;" name="myiFrame" scrolling="yes" frameborder="1" marginheight="0px" marginwidth="0px" height="400px" width="100%" allowfullscreen></iframe>
-      </section>
+        <section>
+          <iframe
+            src="./index.html"
+            style="border: 0px #ffffff none"
+            name="myiFrame"
+            scrolling="yes"
+            frameborder="1"
+            marginheight="0px"
+            marginwidth="0px"
+            height="400px"
+            width="100%"
+            allowfullscreen
+          ></iframe>
+        </section>
 
-     
+        <section>
+          <a
+            target="_bLank"
+            href="https://rank-fortress-digital-agency.github.io/solarpensacola-03-22/"
+            >https://rank-fortress-digital-agency.github.io/solarpensacola-03-22/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="http://solarpensacola-03-22.s3-website-ap-southeast-1.amazonaws.com/"
+            >http://solarpensacola-03-22.s3-website-ap-southeast-1.amazonaws.com/</a
+          ><br />
+          <a
+            target="_bLank"
+            href="https://cheery-nasturtium-6a2232.netlify.app/"
+            >https://cheery-nasturtium-6a2232.netlify.app/</a
+          >
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="side-bar">
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li>
+              <a
+                href="https://www.facebook.com/Solar-Panels-Pensacola-104802594746850/"
+                >Facebook</a
+              >
+            </li>
+            <li>
+              <a href="https://google.com/maps/?cid=18370195428417117280"
+                >Google Page</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/channel/UCtXxtuQKl-sPUglBM2-YFHg"
+                >Youtube</a
+              >
+            </li>
+            <li><a href="#">Pearltrees</a></li>
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Google Site</a></li>
+            <li><a href="#">About</a></li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Useful Links</h2>
+          <ul>
+            <li><a href="http://solarpensacola.com/">Main</a></li>
+            <li><a href="https://goo.gl/maps/pUPBvVJeSUbeKuf7A">Maps</a></li>
+            <li><a href="./media.html">Media</a></li>
+          </ul>
+        </section>
+      </div>
     </div>
-
-    <!-- Sidebar -->
-    <div class="side-bar">
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="https://www.facebook.com/Solar-Panels-Pensacola-104802594746850/">Facebook</a></li>
-          <li><a href="https://google.com/maps/?cid=18370195428417117280">Google Page</a></li>
-          <li><a href="https://www.youtube.com/channel/UCtXxtuQKl-sPUglBM2-YFHg">Youtube</a></li>
-          <li><a href="#">Pearltrees</a></li>
-          <li><a href="#">Calendar</a></li>
-          <li><a href="#">Google Site</a></li>
-          <li><a href="#">About</a></li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Useful Links</h2>
-        <ul>
-          <li><a href="http://solarpensacola.com/">Main</a></li>
-          <li><a href="https://goo.gl/maps/pUPBvVJeSUbeKuf7A">Maps</a></li>
-          <li><a href="./media.html">Media</a></li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</body>
-
+  </body>
 </html>
